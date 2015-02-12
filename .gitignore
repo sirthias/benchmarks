@@ -1,0 +1,36 @@
+*.class
+*.log
+
+# SBT
+test-output/
+.cache/
+.history/
+.lib/
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+
+# IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Scala-IDE specific
+.scala_dependencies
+.worksheet
+.cache
+.classpath
+.project
+.settings
+.target/
+
+# Mac
+.DS_Store
+
+# Other
+*.pyc
