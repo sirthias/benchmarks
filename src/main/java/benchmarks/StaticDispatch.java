@@ -2,7 +2,7 @@ package benchmarks;
 
 public class StaticDispatch {
 
-    public static long inc(long i) {
+    public static int inc(int i) {
         return i + 1;
     }
 }

@@ -42,13 +42,13 @@ Run this benchmark on your machine with::
 
 Results on the `Test Machine`_::
 
-    baseline                    avgt   10  1.884 ± 0.015  ns/op
-    staticDispatch              avgt   10  1.918 ± 0.042  ns/op
-    directObjectDispatch        avgt   10  1.888 ± 0.008  ns/op
-    indirectObjectDispatch      avgt   10  1.891 ± 0.012  ns/op
-    monomorphicVirtualDispatch  avgt   10  1.922 ± 0.031  ns/op
-    bimorphicVirtualDispatch    avgt   10  2.204 ± 0.023  ns/op
-    megamorphicVirtualDispatch  avgt   10  4.386 ± 0.108  ns/op
+    baseline                    avgt   10  12.279 ± 0.169  us/op
+    staticDispatch              avgt   10  12.270 ± 0.133  us/op
+    directObjectDispatch        avgt   10  12.241 ± 0.123  us/op
+    indirectObjectDispatch      avgt   10  12.318 ± 0.121  us/op
+    monomorphicVirtualDispatch  avgt   10  13.264 ± 0.482  us/op
+    bimorphicVirtualDispatch    avgt   10  17.809 ± 0.351  us/op
+    megamorphicVirtualDispatch  avgt   10  45.777 ± 3.486  us/op
 
 Take-Away:
   Calling methods on Scala objects is just as fast as calling static methods on Java classes. The slow-down over the
