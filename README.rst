@@ -24,41 +24,10 @@ Compare with the "baseline" entry of each benchmark to get an indication of how 
 the specific test roughly is.
 
 
-MethodDispatchBenchmark
+ObjectDispatchBenchmark
 -----------------------
 
-Compares the performance of various method dispatch alternatives, namely
-
-1. static java methods
-2. methods on Scala objects (directly)
-3. methods on Scala objects (indirectly)
-4. monomorphic virtual methods
-5. bimorphic virtual methods
-6. megamorphic virtual methods
-
-Run this benchmark on your machine with::
-
-    sbt "runMain benchmarks.MethodDispatchBench"
-
-Results on the `Test Machine`_::
-
-    baseline                    avgt   10  12.279 ± 0.169  us/op
-    staticDispatch              avgt   10  12.270 ± 0.133  us/op
-    directObjectDispatch        avgt   10  12.241 ± 0.123  us/op
-    indirectObjectDispatch      avgt   10  12.318 ± 0.121  us/op
-    monomorphicVirtualDispatch  avgt   10  13.264 ± 0.482  us/op
-    bimorphicVirtualDispatch    avgt   10  17.809 ± 0.351  us/op
-    megamorphicVirtualDispatch  avgt   10  45.777 ± 3.486  us/op
-
-Take-Away:
-  Calling methods on Scala objects is just as fast as calling static methods on Java classes. The slow-down over the
-  baseline implementation is not measurable, because there is none.
-  If the JIT compiler can inline everything the actually running code is basically identical.
-  The same holds true for monomorphic virtual dispatch.
-  However, as soon as the dispatch becomes bimorphic there is noticeable slowdown. The JIT compiler still inlines
-  both implementations but has to insert code that discriminates between the two cases, which causes a slow-down.
-  We can also see that the overhead introduced by a megamorphic (i.e. "truly" virtual) dispatch in this test is about
-  8 times as high as the overhead introduced in the bimorphic case ((4.4 - 1.9) / (2.2 - 1.9) = 8.3).
+...
 
 
 
