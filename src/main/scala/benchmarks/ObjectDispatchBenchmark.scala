@@ -3,20 +3,23 @@ package benchmarks
 import java.util.concurrent.TimeUnit
 import org.openjdk.jmh.annotations._
 
-object ObjectDispatchBench extends App {
-  import org.openjdk.jmh.runner.Runner
-  import org.openjdk.jmh.runner.options.OptionsBuilder
+object ObjectDispatchBench {
 
-  val opts = new OptionsBuilder()
-    .include("ObjectDispatchBenchmark")
-    .forks(1)
-    .warmupIterations(10)
-    .measurementIterations(10)
-    .mode(Mode.AverageTime)
-    .timeUnit(TimeUnit.MICROSECONDS)
-    .threads(1)
-    .build()
-  new Runner(opts).run()
+  def main(args: Array[String]): Unit = {
+    import org.openjdk.jmh.runner.Runner
+    import org.openjdk.jmh.runner.options.OptionsBuilder
+
+    val opts = new OptionsBuilder()
+      .include("ObjectDispatchBenchmark")
+      .forks(1)
+      .warmupIterations(10)
+      .measurementIterations(10)
+      .mode(Mode.AverageTime)
+      .timeUnit(TimeUnit.MICROSECONDS)
+      .threads(1)
+      .build()
+    new Runner(opts).run()
+  }
 }
 
 @State(Scope.Thread)

@@ -6,20 +6,22 @@ import org.openjdk.jmh.annotations._
 import scala.util.Random
 import scala.util.control.NoStackTrace
 
-object ExceptionBench extends App {
-  import org.openjdk.jmh.runner.Runner
-  import org.openjdk.jmh.runner.options.OptionsBuilder
+object ExceptionBench {
+  def main(args: Array[String]): Unit = {
+    import org.openjdk.jmh.runner.Runner
+    import org.openjdk.jmh.runner.options.OptionsBuilder
 
-  val opts = new OptionsBuilder()
-    .include("ExceptionBenchmark")
-    .forks(1)
-    .warmupIterations(5)
-    .measurementIterations(5)
-    .mode(Mode.AverageTime)
-    .timeUnit(TimeUnit.MICROSECONDS)
-    .threads(1)
-    .build()
-  new Runner(opts).run()
+    val opts = new OptionsBuilder()
+      .include("ExceptionBenchmark")
+      .forks(1)
+      .warmupIterations(5)
+      .measurementIterations(5)
+      .mode(Mode.AverageTime)
+      .timeUnit(TimeUnit.MICROSECONDS)
+      .threads(1)
+      .build()
+    new Runner(opts).run()
+  }
 }
 
 @State(Scope.Thread)
